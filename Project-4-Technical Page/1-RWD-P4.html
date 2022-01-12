@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Page Title</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="1-RWD-P4.css">
+</head>
+<body id="main-flex-container">
+  <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+  <nav id="navbar">
+    <header id="header_AE">
+	  <div id="logo">
+	    <img id="logo-img" src="https://github.com/efgarro/1-RWD/blob/main/er-logo.png?raw=1">
+	  </div>
+	  <div id="h-title">
+	    <h2>Awesome Erlang</h2>
+	  </div>
+	</header>
+	<div>
+	  <ul class="nav-ul">
+	    <li><a class="nav-link" href="#riding_erlang">Riding Erlang</a></li>
+		<li><a class="nav-link" href="#defining_functions">Defining Functions</a></li>
+		<li><a class="nav-link" href="#calling_functions">Calling Functions</a></li>
+		<li><a class="nav-link" href="#basic_string_processing">Basic String Processing</a></li>
+		<li><a class="nav-link" href="#erlang_algorithms">Erlang Algorithms</a></li>
+	  </ul>
+	</div> 
+  </nav>
+  <main id="main-doc">
+    <section class="main-section" id="riding_erlang">
+	  <header>
+	    <h3>Riding Erlang</h3>
+	  </header>
+	    <p>In the movie Avatar, there's this big badass bird-brained pterodactyl thing called a Toruk that 
+		the main character must learn to ride in order to regain the trust of the blue people. 
+		As a general rule, Toruks do not like to be ridden, but if you fight one, subdue it, 
+		and then link your Blue Man ponytail to the Toruk's ptero-tail, you get to own the thing for life. 
+		Owning a Toruk is awesome; it’s like owning a flying car you can control with your mind, 
+		which comes in handy when battling large chemical companies, impressing future colleagues, 
+		or delivering a pizza. But learning to ride a Toruk is dangerous, and very few people succeed.</p>
+
+        <p>I like to think of the Erlang programming language as a Toruk. Most people are frightened of Erlang. 
+		Legends of its abilities abound. In order to master it, you have to fight it, subdue it, 
+		and (finally) link your mind to it. But assuming you survive, you then get to control the 
+		world’s most advanced server platform, usually without even having to think. 
+		And let me tell you: riding a Toruk is great fun.</p>
+	</section>  
+	<section class="main-section"  id="defining_functions">
+	  <header>
+	    <h3>Defining Functions</h3>
+	  </header>
+	  <p>In Erlang, functions consist of one or more clauses. The last clause in a function must end with a period ("."), and all other clauses must end with a semicolon (";"). When a function is called, the first clause that matches the provided argument list is executed. You might think of functions as what would happen if C’s <code>switch</code> statement were exposed to toxic sludge and became a superhero.
+	  </p>
+	  <p>In the simplest case, a function has one clause. Here is a function <code>noop</code> that simply returns its argument, the variable <code>A</code> (variables are always capitalized):
+      </p>
+      <pre>
+noop(A) -&gt; A.
+      </pre>
+      <p>
+      Notice that there is no "return" statement in Erlang. A function always returns the result of the last expression. Since every expression has a result, and every function clause has at least one expression, every function always has a return value.
+      </p>
+	  <ul>
+	    <li>Item 1 def functions</li>
+		<li>Item 2 def functions</li>
+		<li>Item 3 def functions</li>
+		<li>Item 4 def functions</li>
+		<li>Item 5 def functions</li>
+	  </ul>
+      <p>
+      Now suppose we wish to implement a Boolean <code>not</code> function that takes either <code>true</code> or <code>false</code> as its single argument. A <code>not</code> function would need two clauses:
+      </p>
+      <pre>
+not(true) -&gt; false;
+not(false) -&gt; true.
+      </pre>
+	</section>  
+  
+	<section class="main-section" id="calling_functions">
+	  <header>
+	    <h3>Calling Functions</h3>
+	  </header>
+	  
+      <p>
+      Erlang has a rich set of arithmetical operators. But in this section, we are not going to use any of them. Instead we are going to build our own complete arithmetic library, using only what we have learned so far about functions.
+      </p>
+
+      <p>
+      The task in this section is admittedly contrived, and recursion is definitely <em>not</em> the simplest way to solve it in the real world. However, the exercise will be a good way to practice recursive thinking in preparation for Section 3, where recursion will the best way to go about our problem.
+      <p>
+
+      <p>
+      Recall that recursive functions have at least two parts: they must first test for some kind of base case (where the algorithm terminates), and if the base case is not satisfied, the recursive function must perform some logic, and then issue a call to itself. In Erlang, recursive functions usually have at least two clauses: a “base case” clause, and an “all other cases” clause.
+      </p>
+
+      <p>
+      This will all become clear in a minute. To get things moving, I am going to provide two functions off of which the rest of the library will be built: <code>incr</code> and <code>decr</code>. Assume that <code>incr</code> increments the provided argument, and that <code>decr</code> decrements the provided argument, like this:
+      </p>
+
+      <pre>
+incr(A) -&gt; A + 1.
+
+decr(A) -&gt; A - 1.
+      </pre>
+      </section>  
+
+	<section class="main-section" id="basic_string_processing">
+	  <header>
+	    <h3>Basic String Processing</h3>
+	  </header>
+	  
+      <p>
+      In Erlang, strings are represented as lists of integers. These integers are either ASCII character codes or Unicode code points. For example, the ASCII string "dog" is represented as the list of the integers 100 ("d"), 111 ("o"), 103 ("g"). The literal representation of an Erlang list is surrounded by square brackets, so "dog" can be written <code>[100, 111, 103]</code> if you so desire. To represent the integer for a particular character, simply precede it with a dollar sign ("$"). So <code>[$d, $o, $g]</code> is the same as <code>[100, 111, 103]</code> is the same as "dog".
+      </p>
+
+      <p>
+      The empty list is represented as "<code>[]</code>". It has no head and no tail.
+      <p>
+
+      <p>
+      In Erlang, to push an item to the head of the list, use the "<code>|</code>" operator (a pipe character):
+      </p>
+
+      <p>
+      The <code>|</code> operator can also be used in pattern-matching to pull an item from the head of a list:
+      </p>
+
+      <pre>
+some_function([FirstItem | RestOfList]) -&gt;
+... do something with FirstItem ...
+      </pre>
+      </section>  
+
+      <section class="main-section" id="erlang_algorithms">
+	  <header>
+	    <h3>Erlang Algorithms</h3>
+	  </header>
+	  
+      <p>
+      So now we’re ready to have some fun. Since you know the basics of Erlang now, I won’t spend too much time explaining the following algorithms. They’re just meant for you to ponder and enjoy.
+      </p>
+
+      <p>
+      A classic interview question is converting a string to an integer (<code>atoi</code> in C). Here’s how to do that in Erlang:
+      <p>
+<pre>
+% public
+atoi([$- | String]) -&gt; % negative
+    -1 * atoi(String, 0);
+atoi(String) -&gt; % non-negative
+    atoi(String, 0).
+
+% internal
+atoi([], Acc) -&gt;
+    Acc;
+atoi([C | Rest], Acc) when C &gt;= $0, C =&lt; $9 -&gt;
+    atoi(Rest, 10 * Acc + (C - $0)).
+</pre>
+      <p>
+      Note that the accumulator here is an integer, rather than a string like we’ve been using so far. In principle, of course, an accumulator can be anything.
+      </p>
+
+      <p>
+      Now suppose we want to do the opposite: convert an integer to a string. Here’s how:
+      </p>
+<pre>
+% public
+to_string(0) -&gt;
+    [$0];
+to_string(Integer) when Integer &lt; 0 -&gt; % negative
+    [$-|to_string(-1 * Integer, [])];
+to_string(Integer) -&gt; % positive
+    to_string(Integer, []).
+
+% internal
+to_string(0, Acc) -&gt;
+    Acc;
+to_string(Integer, Acc) -&gt;
+  to_string(Integer div 10, [(Integer rem 10) + $0 | Acc]).
+</pre>
+      <pre>
+some_function([FirstItem | RestOfList]) -&gt;
+... do something with FirstItem ...
+      </pre>
+	  <p>
+      All the written content for this exercise was taken from an article titled "The Joy of Erlang" by Evan Miller.
+	  </p>
+      </section>  
+
+  </main>
+  
+</body>
+</html>

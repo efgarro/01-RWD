@@ -1,0 +1,162 @@
+
+@import "https://fonts.googleapis.com/css?family=Karla";
+
+/* HTML element CSS Properties */
+:root {
+ /* Setting a base font size of 10px give us easier rem calculations
+     Info: 1rem === 10px, 1.5rem === 15px, 2rem === 20px and so forth
+   */
+  display: block; /* CSS default value */
+  font-size: 10px;	
+  font-family: 'Karla', sans-serif;
+  background: linen; /* #ffcc80 */
+}
+/* end of HTML element */
+
+
+*,
+*::before,
+*::after  {
+  box-sizing: border-box;
+}
+
+/* Body element CSS Properties */
+body {
+  display: block; /* CSS default value */
+  margin: 0px;
+  background-color: linen;
+/*  border: 5px dashed green; */
+}
+/* end of Body element */
+
+
+/* Header element CSS Properties */
+header {
+  display: block; /* CSS default value */
+  margin: 0px 0px 0px 0px;
+  height: 85px;
+  position: sticky; /* the property top: 0px is required */
+  top : 0px;
+  background-color: tomato;
+/*  border: 5px solid green;	*/
+}
+
+#header-img {
+  float: left;
+  max-width:100%;
+  max-height:100%;
+}
+#nav-bar {
+  background-color: lightgreen;
+  overflow: hidden;
+  height: 100%;
+}
+
+.nav-link {
+  float: right;
+  color: grey;
+  text-align: center;
+  padding: 14px 36px;
+  text-decoration: none;
+  font-size: 17px;	
+}
+/* end of Header element */
+
+
+/* Form element CSS Properties */
+form {
+  display: block; 
+  margin: 0 auto 1.25rem auto;  /* CSS default value margin-top: 0em; */
+  text-align: center;
+  padding: 0.25rem;
+/*  border: 3px dotted green; */
+}
+/* end of Form element */
+
+
+/* Section element CSS Properties */
+section {
+  display: block; /* CSS default value */
+}
+/* end of Section element */
+
+
+#descrip {
+  display: flex;
+  margin: 10px 200px;
+  height: 190px;
+  background-color: gainsboro;
+/*  border: 5px solid green;	*/
+}
+
+
+#desc-img {
+  max-width:100%;
+  max-height:100%;
+}
+
+#desc > h1 {
+  margin-left: 2rem;
+  font-size: 2.0rem;  
+}
+
+
+iframe {
+  display: block;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  margin-right: auto;
+  margin-left: auto;
+  border: 5px dotted green;
+}
+
+h1 {
+  color: darkblue;
+/*  text-align: center; */
+}
+
+h2 {
+  margin-left: 2rem;
+  font-size: 1.5rem;
+}
+
+#desc > p {
+  margin-left: 2rem;
+  font-size: 1.75rem;
+}
+
+#s-box > h3 {
+  margin-left: 2rem;
+  font-size: 2.0rem;  
+}
+
+#s-box > p {
+  margin-left: 2rem;
+  font-size: 1.75rem;
+}
+
+li {
+  font-size: 1.5rem;
+}
+
+.flex-container {
+  display: flex;
+  margin: 10px 200px;
+  height: 190px;
+  font-size: 1.5rem;	
+/*  background-color: dodgerblue; */
+}
+
+.flex-container > div {
+  background-color: gainsboro;
+  margin: 10px;
+  width: 33.33%;
+  padding: 20px;
+  font-size: 30px;
+}
+
+@media (min-width: 480px) {
+  form {
+    padding: 2.5rem;
+  }
+}
